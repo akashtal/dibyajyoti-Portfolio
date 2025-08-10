@@ -17,26 +17,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${SITE.name} — ${SITE.role}`,
-  description: SITE.tagline,
+  title: `${SITE.name} — ${SITE.title}`,
+  description: SITE.description,
   metadataBase: new URL("https://example.com"),
   openGraph: {
-    title: `${SITE.name} — ${SITE.role}`,
-    description: SITE.tagline,
+    title: `${SITE.name} — ${SITE.title}`,
+    description: SITE.description,
     url: "/",
     siteName: SITE.name,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} — ${SITE.role}`,
-    description: SITE.tagline,
+    title: `${SITE.name} — ${SITE.title}`,
+    description: SITE.description,
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--bg)] text-[var(--fg)]`}>
         <ThemeProvider>
           <Navbar />
