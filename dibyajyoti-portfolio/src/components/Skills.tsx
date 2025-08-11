@@ -79,10 +79,20 @@ const skillIcons: Record<string, React.ComponentType<{ className?: string }>> = 
 };
 
 export default function Skills() {
-  const [ref, inView] = useInView({
+  const [ref, inViewFromHook] = useInView({
     triggerOnce: true,
-    threshold: 0,
+    threshold: 0.1,
+    rootMargin: "100px",
   });
+
+  const [inView, setInView] = React.useState(false);
+
+  React.useEffect(() => {
+    if (inViewFromHook) setInView(true);
+    const timer = setTimeout(() => setInView(true), 1500); // fallback for mobile
+    return () => clearTimeout(timer);
+  }, [inViewFromHook]);
+
 
   return (
     <Section id="skills" className="py-20 relative overflow-hidden">
