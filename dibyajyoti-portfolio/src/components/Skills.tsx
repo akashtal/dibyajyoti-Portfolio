@@ -81,7 +81,7 @@ const skillIcons: Record<string, React.ComponentType<{ className?: string }>> = 
 export default function Skills() {
   const [ref, inViewFromHook] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0,
     rootMargin: "100px",
   });
 
@@ -89,8 +89,6 @@ export default function Skills() {
 
   React.useEffect(() => {
     if (inViewFromHook) setInView(true);
-    const timer = setTimeout(() => setInView(true), 1500); // fallback for mobile
-    return () => clearTimeout(timer);
   }, [inViewFromHook]);
 
 
