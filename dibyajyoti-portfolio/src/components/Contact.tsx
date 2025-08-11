@@ -23,7 +23,7 @@ export default function Contact() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0,
   });
 
   async function onSubmit(formData: FormData) {
@@ -114,9 +114,10 @@ export default function Contact() {
                 Send me a message
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                Have an idea, a project, or a position where I can contribute? 
-                I&apos;d love to hear from you and discuss how we can work together.
-              </p>
+  Have an idea, a project, or a position where I can contribute? 
+  I'd love to hear from you and discuss how we can work together.
+</p>
+
             </div>
 
             <form
@@ -237,15 +238,16 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-8"
           >
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                Let`&apos`s connect
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                I&apos;m always open to discussing new opportunities, interesting projects, 
-                or just having a chat about technology and development.
-              </p>
-            </div>
+<div className="space-y-6">
+  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+    Let's connect
+  </h3>
+  <p className="text-slate-600 dark:text-slate-400">
+    I'm always open to discussing new opportunities, interesting projects, 
+    or just having a chat about technology and development.
+  </p>
+</div>
+
 
             {/* Contact Info Cards */}
             <div className="space-y-4">
@@ -306,9 +308,10 @@ export default function Contact() {
                 <span className="font-semibold text-slate-900 dark:text-white">Available for new opportunities</span>
               </div>
               <p className="text-slate-600 dark:text-slate-400 text-sm">
-                I&apos;m currently accepting new projects and full-time opportunities. 
-                Let&apos;s discuss how I can help bring your ideas to life!
-              </p>
+  I'm currently accepting new projects and full-time opportunities. 
+  Let's discuss how I can help bring your ideas to life!
+</p>
+
             </motion.div>
           </motion.div>
         </div>

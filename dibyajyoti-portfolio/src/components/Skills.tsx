@@ -81,7 +81,7 @@ const skillIcons: Record<string, React.ComponentType<{ className?: string }>> = 
 export default function Skills() {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0,
   });
 
   return (
@@ -203,10 +203,11 @@ export default function Skills() {
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
               Always Learning & Growing
             </h3>
-                         <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-               I&apos;m constantly exploring new technologies and frameworks to stay current with industry trends. 
-               My passion for learning drives me to master new skills and deliver cutting-edge solutions.
-             </p>
+            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+  I'm constantly exploring new technologies and frameworks to stay current with industry trends. 
+  My passion for learning drives me to master new skills and deliver cutting-edge solutions.
+</p>
+
             <div className="flex justify-center gap-6 pt-4">
               <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
                 <TrendingUp className="w-4 h-4 text-green-500" />

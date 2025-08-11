@@ -3,13 +3,13 @@ import { Section, SectionHeading } from "@/components/Section";
 import { EXPERIENCES } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { 
-  FaBriefcase, 
+import {
+  FaBriefcase,
   FaRocket,
 } from "react-icons/fa";
-import { 
-  Building2, 
-  Calendar, 
+import {
+  Building2,
+  Calendar,
   Code2,
   Users,
   TrendingUp,
@@ -19,7 +19,7 @@ import {
 export default function Experience() {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0,
   });
 
   return (
@@ -32,13 +32,13 @@ export default function Experience() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title="Professional Journey" subtitle="My work experience and achievements" />
-        
+
         <div ref={ref} className="mt-16">
           {/* Timeline */}
           <div className="relative">
             {/* Timeline Line */}
             <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-orange-500 rounded-full" />
-            
+
             <div className="space-y-12">
               {EXPERIENCES.map((exp, idx) => (
                 <motion.div
@@ -58,7 +58,7 @@ export default function Experience() {
 
                   {/* Content Card */}
                   <motion.div
-                                    key={exp.role}
+                    key={exp.role}
 
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -83,7 +83,7 @@ export default function Experience() {
                             </div>
                           </div>
                         </div>
-                        
+
                         {/* Status Badge */}
                         <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900/30 dark:to-blue-900/30 text-green-700 dark:text-green-400 font-medium">
                           <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
@@ -151,9 +151,10 @@ export default function Experience() {
                 Key Achievements & Growth
               </h3>
               <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-                Throughout my professional journey, I&apos;ve consistently delivered high-quality solutions, 
-                collaborated with cross-functional teams, and contributed to the success of various projects.
-              </p>
+  Throughout my professional journey, I've consistently delivered high-quality solutions,
+  collaborated with cross-functional teams, and contributed to the success of various projects.
+</p>
+
               <div className="flex justify-center gap-8 pt-4">
                 <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
                   <TrendingUp className="w-4 h-4 text-green-500" />

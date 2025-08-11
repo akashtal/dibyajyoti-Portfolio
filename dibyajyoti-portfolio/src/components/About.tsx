@@ -25,7 +25,7 @@ import {
 export default function About() {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0,
   });
 
   const stats = [
@@ -144,16 +144,18 @@ export default function About() {
               className="space-y-6"
             >
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                Hello! I`&apos`m <span className="gradient-text">Dibyajyoti</span> 👋
+                Hello! I'm <span className="gradient-text">Dibyajyoti</span> 👋
               </h3>
+
               <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
                 {SITE.description}
               </p>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                I&apos;m passionate about creating innovative solutions that make a difference.
-                When I&apos;m not coding, you can find me exploring new technologies, contributing to open-source projects,
-                or sharing knowledge with the developer community.
-              </p>
+  I'm passionate about creating innovative solutions that make a difference.
+  When I'm not coding, you can find me exploring new technologies, contributing to open-source projects,
+  or sharing knowledge with the developer community.
+</p>
+
             </motion.div>
 
             {/* Personal Info */}

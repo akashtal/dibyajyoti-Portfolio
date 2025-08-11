@@ -1,0 +1,12 @@
+{
+    "editor.renderWhitespace": "selection",
+    "editor.cursorStyle": "line",
+    "workbench.colorCustomizations": {
+        "[Kimbie Dark]": { }
+    },
+    "workbench.colorTheme": "Monokai",
+    "workbench.preferredHighContrastColorTheme": "Blueberry Banana",
+    "workbench.preferredDarkColorTheme": "Blueberry Banana",
+    "workbench.preferredLightColorTheme": "Blueberry Banana",
+    "workbench.iconTheme": "material-icon-theme"
+}
