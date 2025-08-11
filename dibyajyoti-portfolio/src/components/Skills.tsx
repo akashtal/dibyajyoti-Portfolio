@@ -2,7 +2,7 @@
 import { Section, SectionHeading } from "@/components/Section";
 import { SKILLS, type Skill } from "@/lib/constants";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React from "react";
 import {
   FaCode,
   FaStar,
@@ -24,7 +24,6 @@ import {
   SiWebrtc,
   SiBootstrap,
 } from "react-icons/si";
-import React from "react";
 import {
   Code2,
   Database,
@@ -79,19 +78,6 @@ const skillIcons: Record<string, React.ComponentType<{ className?: string }>> = 
 };
 
 export default function Skills() {
-  const [ref, inViewFromHook] = useInView({
-    triggerOnce: true,
-    threshold: 0,
-    rootMargin: "100px",
-  });
-
-  const [inView, setInView] = React.useState(false);
-
-  React.useEffect(() => {
-    if (inViewFromHook) setInView(true);
-  }, [inViewFromHook]);
-
-
   return (
     <Section id="skills" className="py-20 relative overflow-hidden">
       {/* Background Elements */}
@@ -103,19 +89,21 @@ export default function Skills() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title="Skills & Expertise" subtitle="Technologies I work with" />
 
-        <div ref={ref} className="mt-16 space-y-12">
+        <div className="mt-16 space-y-12">
           {categories.map((cat, catIndex) => (
             <motion.div
               key={cat}
               initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.8, delay: catIndex * 0.2 }}
               className="space-y-6"
             >
               {/* Category Header */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.6, delay: catIndex * 0.2 + 0.2 }}
                 className="flex items-center gap-4"
               >
@@ -131,7 +119,8 @@ export default function Skills() {
                   <motion.div
                     key={skill.name}
                     initial={{ opacity: 0, scale: 0.8 }}
-                    animate={inView ? { opacity: 1, scale: 1 } : {}}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.6, delay: catIndex * 0.2 + 0.4 + skillIndex * 0.1 }}
                     className="group relative p-6 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover-lift hover-glow"
                   >
@@ -167,7 +156,8 @@ export default function Skills() {
                       <div className="h-3 w-full rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
-                          animate={inView ? { width: `${skill.levelPercent}%` } : {}}
+                          whileInView={{ width: `${skill.levelPercent}%` }}
+                          viewport={{ once: true }}
                           transition={{ duration: 1, delay: catIndex * 0.2 + 0.6 + skillIndex * 0.1 }}
                           className="h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-600 relative"
                         >
@@ -203,7 +193,8 @@ export default function Skills() {
         {/* Skills Summary */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, delay: 1.5 }}
           className="mt-20 p-8 rounded-3xl bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200/50 dark:border-blue-700/50"
         >
